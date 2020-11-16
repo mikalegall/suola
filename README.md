@@ -2,6 +2,7 @@
 Tero Karvisen [opissa](http://terokarvinen.com/2020/configuration-management-systems-palvelinten-hallinta-ict4tn022-autumn-2020/ "Configuration Management Systems") saadut etätehtävät MarkDownilla tallennettuna ([Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet))
 
 ##Tapahtumahistoria
+
 Komento 'git log' näyttää viimeisimpiä komentoja esim. lisämääreellä 'git log -3'
 
 	$ git log
@@ -27,6 +28,7 @@ Komento 'git log' näyttää viimeisimpiä komentoja esim. lisämääreellä 'gi
 
 
 ##git reset –hard
+
 Typotin lokaalin commitin puskematta sitä etärepoon. Otin tämän tiedoston sisällön copy+pastella leikepöydälle.
 
 	$ git status
