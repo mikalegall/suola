@@ -27,7 +27,7 @@ Komento 'git log' näyttää viimeisimpiä komentoja esim. lisämääreellä 'gi
 	/HELIA/Palvelinten hallinta/GIT/suola (main)$
 
 
-##git reset –hard
+##Muutosten kumoaminen peruuttamattomasti (git reset –hard)
 
 Typotin lokaalin commitin puskematta sitä etärepoon. Otin tämän tiedoston sisällön copy+pastella leikepöydälle.
 
@@ -76,3 +76,61 @@ Tarkistin edellisen validin commitin tunnisteen 'git log -2' saaden vastaukseksi
 	 /HELIA/Palvelinten hallinta/GIT/suola (main)$
 
 Lopulta liitin vanhan tiedoston päälle leikepöydältä muutokseni ja puskin uuden version etärepoon
+
+
+##Eroavaisuuksien selvittäminen (git diff)
+
+Kun ohjelmakoodi kosahtaa tuotannossa, ja muutosta jäljitetään, voidaan kahta tallennettua tekstisisältöä vertailla komennolla 'git diff'. Ensin selvitin kahden viimeisimmän commitin tunnisteet (git log -2)
+
+	Administrator@ACADEMY-7115W4W MINGW64 ~/Downloads/HELIA/Palvelinten hallinta/GIT/suola (main)
+	$ git log -2
+	commit dc0473d7a6d41c374b7e6a3c6dbb15fd2397b238 (HEAD -> main, origin/main, origin/HEAD)
+	Author: Mika L
+	Date:   Mon Nov 16 17:34:49 2020 +0200
+
+		try to do some format
+
+	commit e988e8fd19e268fe62edb6881a9a2749f87a7933
+	Author: Mika L
+	Date:   Mon Nov 16 17:31:50 2020 +0200
+
+		fix link, add git log
+
+ja sitten vertailin niitä 'git diff dc0473d7a6d41c374b7e6a3c6dbb15fd2397b238 e988e8fd19e268fe62edb6881a9a2749f87a7933'
+
+	/HELIA/Palvelinten hallinta/GIT/suola (main)$ git diff dc0473d7a6d41c374b7e6a3c6dbb15fd2397b238 e988e8fd19e268fe62edb6881a9a2749f87a7933
+	diff --git a/README.md b/README.md
+	index b438b66..5a40858 100644
+	--- a/README.md
+	+++ b/README.md
+	@@ -2,7 +2,6 @@
+	 Tero Karvisen [opissa](http://terokarvinen.com/2020/configuration-management-systems-palvelinten-hallinta-ict4tn022-autumn-2020/ "Configuration Management Systems") saadut etätehtävät MarkDownilla tallennettuna ([Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet))
+
+	 ##Tapahtumahistoria
+	-
+	 Komento 'git log' näyttää viimeisimpiä komentoja esim. lisämääreellä 'git log -3'
+
+			$ git log
+	@@ -28,7 +27,6 @@ Komento 'git log' näyttää viimeisimpiä komentoja esim. lisämääreellä 'gi
+
+
+	 ##git reset –hard
+	-
+	 Typotin lokaalin commitin puskematta sitä etärepoon. Otin tämän tiedoston sisällön copy+pastella leikepöydälle.
+
+			$ git status
+
+	/HELIA/Palvelinten hallinta/GIT/suola (main)$
+
+##Syyllisen esiin kaivaminen (git blame)
+
+Kuten vakuutusyhtiöiden korvauspäätöksissä, täytyy toimenpiteiden kohdistua johonkin. Siispä epätarkoituksenmukaisen koodirivin pätkän tallentaja kaivetaan esiin versiointihistoriasta rivin tarkkuudella. Tässä tynkä esimerkissä ollaan kiinnostuneita rivien 2-3 muokkaajasta 'git blame -L 2,3 README.md'
+
+
+	/HELIA/Palvelinten hallinta/GIT/suola (main)$ git blame -L 2,3 README.md
+	e988e8fd (Mika L 2020-11-16 17:31:50 +0200 2) Tero Karvisen [opissa](http://terokarvinen.com/2020/configuration-management-systems-palvelinten-hallinta-ict4tn022-autumn-2020/ "Configuration Management Systems") saadut etätehtävät MarkDownilla tallennettuna ([Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet))
+	e988e8fd (Mika L 2020-11-16 17:31:50 +0200 3)
+
+	/HELIA/Palvelinten hallinta/GIT/suola (main)$
+
+
