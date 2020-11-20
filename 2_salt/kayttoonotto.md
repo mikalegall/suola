@@ -6,12 +6,12 @@ YAML syntaksilla kahden välilyönnin väliaskelein (ei sarkain-tabulaattorilla)
 
 	asenna_paljon_sovelluksia_paketinhallinnasta_etakoneelle:
 	  pkg.installed:
-		- pkgs:
-		- httpie
-		- htop
-		- tree
-		- curl
-		- atool
+	    - pkgs:
+	      - httpie
+	      - htop
+	      - tree
+	      - curl
+	      - atool
 
 ![alt text](https://github.com/mikalegall/suola/blob/main/img/h4a_1_iac_versionhallintaan_tallennettavat_tiedostot.jpg "init.sls ja top.sls sijainnit")
 
