@@ -1,13 +1,21 @@
 # Versionhallinnan peruskomennot
 
 Git-versionhallinnan tarkkailemassa paikallisessa hakemistossa kaikkien muuttuneiden tiedostojen valmistelu (lisäämällä ne kaikki seuraavaan lähetykseen mukaan) versionhallinnan jaetulle etäpalvelimelle lähetettävksi tapahtuu komenno
+
   git add .
+
 Muutostapahtumaan liitetään tieto sisällön muutoksesta samoin kuin vaikkapa postipakettiin liimattaisiin päälle "sisältää särkyvää" tarra, tai päivittäistavarakaupassa säilykkeeseen tulee hintalappu. Informatiivinen lisäys auttaa sen lukijaa. Versionhallinnassa vakiintunut tapa on antaa muutostieto käskymuotona (siis ei imperfektissä mitä tapahtui) lyhyesti englannin kielellä. Ei siis "vaihdoin painikkeen taustavärin punaiseksi" vaan
+
 	git commit -m"Change button background to red"
+
 Ylipitkänä "Change the background color of the button to red" on tarpeeton sillä asian ymmärtää paljon lyhyemminkin. Lopulta muuttuneiden tiedostojen muutokset työnnetään versionhallinnan jaetulle yhteiskäyttöpalvelimelle nähtäväksi
+
 	git push
+
 josta ne on muiden vedettävissä omalle tietokoneelleen
+
 	git pull
+
 
 ## Tapahtumahistoria
 
