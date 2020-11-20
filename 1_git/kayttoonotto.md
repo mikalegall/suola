@@ -1,8 +1,8 @@
 # Versionhallinnan peruskomennot
 
-Git-versionhallinnan tarkkailemassa paikallisessa hakemistossa kaikkien muuttuneiden tiedostojen valmistelu (lisäämällä ne kaikki seuraavaan lähetykseen mukaan) versionhallinnan jaetulle etäpalvelimelle lähetettävksi tapahtuu komenno
+Git-versionhallinnan tarkkailemassa paikallisessa hakemistossa kaikkien muuttuneiden tiedostojen valmistelu (lisäämällä ne kaikki seuraavaan lähetykseen mukaan) versionhallinnan jaetulle etäpalvelimelle lähetettävksi tapahtuu komennolla
 
-  git add .
+	git add .
 
 Muutostapahtumaan liitetään tieto sisällön muutoksesta samoin kuin vaikkapa postipakettiin liimattaisiin päälle "sisältää särkyvää" tarra, tai päivittäistavarakaupassa säilykkeeseen tulee hintalappu. Informatiivinen lisäys auttaa sen lukijaa. Versionhallinnassa vakiintunut tapa on antaa muutostieto käskymuotona (siis ei imperfektissä mitä tapahtui) lyhyesti englannin kielellä. Ei siis "vaihdoin painikkeen taustavärin punaiseksi" vaan
 
