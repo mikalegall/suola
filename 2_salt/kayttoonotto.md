@@ -212,17 +212,17 @@ Nyt voi tapahtumat kääntää Salt kielelle, Salt Master-palvelimella, ja monis
 	#Anna root oikeudet avaimen haltijalle
 	/etc/apt/trusted.gpg.d/microsoft.gpg:
 	  file.managed:
-		- source: salt://h4b/microsoft.gpg
+	    - source: salt://h4b/microsoft.gpg
 
 	#Lisä ulkoinen repo
 	/etc/apt/sources.list.d/microsoft.list:
 	  file.managed:
-		- source: salt://h4b/microsoft.list
+	    - source: salt://h4b/microsoft.list
 
 	#Päivitä repojen tiedot ja asenna ohjelma
 	code:
 	  pkg.installed:
-		- refresh: True
+	    - refresh: True
 
 
 Lisätään vielä etäkoneen idempotency
@@ -232,7 +232,7 @@ Lisätään vielä etäkoneen idempotency
 
 	base:
 	  'ubuntu20Desktop'
-		- h4b
+	    - h4b
 
 Masterin asennusmoduliin "h4b" tulee siirtää tiedostot microsoft.gpg ja microsoft.list, josta ne kopioidaan Slave koneille
 
