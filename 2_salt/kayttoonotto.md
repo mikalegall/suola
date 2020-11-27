@@ -51,11 +51,16 @@ find // Etsi<br/>
 %p // Tulostaa hakutuloksen standard outputtiin ("näytölle") rivittämättömänä, tässä tapauksessa tiedostojen nimet peräkkäin yhtenä pötkönä<br/>
 '%p' // Hipsukoiden ollessa tiukin sääntö ei komentotulkki pääse sen sisään<br/>
 '%p\n' // Rivinvaihdon merkkinnä on [\n](https://en.wikipedia.org/wiki/Escape_character#JavaScript) (eli vaihda riviä, "new line", rivittämällä hakutulos helpommin luettavaan muotoon)<br/>
-'%T' // Aikaleima [ISO-8601](https://fi.wikipedia.org/wiki/ISO_8601) muodossa<br/>
+'%T+' // Aikaleima [ISO-8601](https://fi.wikipedia.org/wiki/ISO_8601) muodossa<br/>
 | // Vasemman puolen lopputuotos on [putkimerkin](https://www.linux.fi/wiki/Putki) oikean puolen syöte<br/>
 sort // Laittaa aakkosjärjestykseen, jonka ansiosta nähdään helposti mitkä tiedostot ovat viimeksi muokattuja<br/>
 | // Vasemman puolen lopputuotos on [putkimerkin](https://www.linux.fi/wiki/Putki) oikean puolen syöte<br/>
-tail // Näyttää saamansa syötteen (esim. tiedosto tai hakutulos) viimeiset 10 riviä (head olisi 10 ensimmäistä riviä) 
+tail // Näyttää saamansa syötteen (esim. tiedosto tai hakutulos) viimeiset 10 riviä (head olisi 10 ensimmäistä riviä)
+
+PÄIVITYS 27.11.2020
+
+	find /etc -printf '%T+ %p\n' | sort | tail; echo "\n  (*)  (*)  \n     || \n   shinobi \n     owl\n"; sudo find / -printf '%T+\n' | sort | tail
+_Lisätty loppuun järjestelmässä ylipäätään viimeisimpänä muuttuneet tiedostot, jotta voi pikasilmäillen havaita mahdollisesti muuallakin salakavalasti muuttuneita tiedostoja kuin vain "etssissä" (/etc)_
 
 ## H4b: Linux etäkoneelle ohjelman asennus, joka ei läydy Linux-paketinhallinnasta
 Perusprosessi on suorittaa manuaalisesti etäkoneelle vaihe-vaiheelta kaikki se käsin, jota etäkoneelle halutaan myöhemmin automatisoidusti esim. Salt toimiesta asentaa ([kilpailijoinaan mm. Chef ja Puppet](https://www.edureka.co/blog/chef-vs-puppet-vs-ansible-vs-saltstack/)). Tausta-ajatuksena siis se, että jokaisessa vaiheessa jäljitetään (aiemmin mainitulla "find /etc -printf '%T+ %p\n' | sort") tapahtuneet muutokset ja lopulta mallinnetaan sama lopputulos hallintatyökalun kautta.<br/>Koostamalla suorituskäskyt hallintatyökalun ymmärtämälle kielelle versionhallintaan saavutetaan samalla tilanne, jossa ylläpidossa (ns. Support toiminto) tiedetään täydellä varmuudella mitä millekin etäkoneelle on milloinkin asennettu. Lisäksi häiriönhallinnssa ([ITIL Incident Management](https://www.wakaru.fi/palvelujohtaminen/itil4/itil-materiaalipankki/)) kyetään tarvittaessa myös jopa ympäristö palauttamaan aiempaan (häiriöttömään) tilaan (rollback mahdollisuus sovellusten lisäksi myös infralle).
