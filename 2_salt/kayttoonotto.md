@@ -108,7 +108,7 @@ Ilman .d päätettä oleva /etc/apt/trusted.gpg on binääritiedosto joka ei suu
 
 ![alt text](https://github.com/mikalegall/suola/blob/main/img/h4b_3_binaarimossoa.jpg "Sotkua")
 
-### Sivuhuomauts
+#### Sivuhuomautus
 _Useimmiten tiedosnsiirtoa silmälläpitäen on edellä esitettyä binäärimössöä ennakoiden erikoismerkit muutettu ns. [ASCII armoring](https://en.wikipedia.org/wiki/Binary-to-text_encoding) teknikkalla esim. [base64](https://en.wikipedia.org/wiki/Base64#Examples) muotoon, jotta tiedosto saataisiin (jopa sähköpostilla) erheettömästi siirretyksi, ja lopulta vastaanottopäässä halutunlailla toimivaksi. Sellaisissa käyttötapauksissa saattaa olla tarpeen purkaa (dearmor) tiedosto alla olevan esimerkin kaltaisesti_
 
 	wget https://packages.microsoft.com/keys/microsoft.gpg
