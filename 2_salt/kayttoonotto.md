@@ -62,7 +62,7 @@ PÄIVITYS 27.11.2020
 	find /etc -printf '%T+ %p\n' | sort | tail; echo "\n  (*)  (*)  \n     || \n   shinobi \n     owl\n"; sudo find / -printf '%T+\n' | sort | tail
 _Lisätty loppuun järjestelmässä ylipäätään viimeisimpänä muuttuneet tiedostot, jotta voi pikasilmäillen havaita mahdollisesti muuallakin salakavalasti muuttuneita tiedostoja kuin vain "etssissä" (/etc)_
 
-## H4b: Linux etäkoneelle ohjelman asennus, joka ei läydy Linux-paketinhallinnasta
+## H4b: Linux etäkoneelle ohjelman asennus, joka ei löydy Linux-paketinhallinnasta
 Perusprosessi on suorittaa manuaalisesti etäkoneelle vaihe-vaiheelta kaikki se käsin, jota etäkoneelle halutaan myöhemmin automatisoidusti esim. Salt toimiesta asentaa ([kilpailijoinaan mm. Chef ja Puppet](https://www.edureka.co/blog/chef-vs-puppet-vs-ansible-vs-saltstack/)). Tausta-ajatuksena siis se, että jokaisessa vaiheessa jäljitetään (aiemmin mainitulla "find /etc -printf '%T+ %p\n' | sort") tapahtuneet muutokset ja lopulta mallinnetaan sama lopputulos hallintatyökalun kautta.<br/>Koostamalla suorituskäskyt hallintatyökalun ymmärtämälle kielelle versionhallintaan saavutetaan samalla tilanne, jossa ylläpidossa (ns. Support toiminto) tiedetään täydellä varmuudella mitä millekin etäkoneelle on milloinkin asennettu. Lisäksi häiriönhallinnssa ([ITIL Incident Management](https://www.wakaru.fi/palvelujohtaminen/itil4/itil-materiaalipankki/)) kyetään tarvittaessa myös jopa ympäristö palauttamaan aiempaan (häiriöttömään) tilaan (rollback mahdollisuus sovellusten lisäksi myös infralle).
 
 ### Esimerkkiasennuksena Microsoft Visual Studio Code
@@ -114,7 +114,7 @@ Ilman .d päätettä oleva /etc/apt/trusted.gpg on binääritiedosto joka ei suu
 ![alt text](https://github.com/mikalegall/suola/blob/main/img/h4b_3_binaarimossoa.jpg "Sotkua")
 
 #### Sivuhuomautus
-_Useimmiten tiedosnsiirtoa silmälläpitäen on edellä esitettyä binäärimössöä ennakoiden erikoismerkit muutettu ns. [ASCII armoring](https://en.wikipedia.org/wiki/Binary-to-text_encoding) teknikkalla esim. [base64](https://en.wikipedia.org/wiki/Base64#Examples) muotoon, jotta tiedosto saataisiin (jopa sähköpostilla) erheettömästi siirretyksi, ja lopulta vastaanottopäässä halutunlailla toimivaksi. Sellaisissa käyttötapauksissa saattaa olla tarpeen purkaa (dearmor) tiedosto alla olevan esimerkin kaltaisesti_
+_Useimmiten tiedonsiirtoa silmälläpitäen on edellä esitettyä binäärimössöä ennakoiden erikoismerkit muutettu ns. [ASCII armoring](https://en.wikipedia.org/wiki/Binary-to-text_encoding) teknikkalla esim. [base64](https://en.wikipedia.org/wiki/Base64#Examples) muotoon, jotta tiedosto saataisiin erheettömästi siirretyksi (jopa sähköpostilla), ja lopulta vastaanottopäässä halutunlailla toimivaksi. Sellaisissa käyttötapauksissa saattaa olla tarpeen purkaa (dearmor) tiedosto alla olevan esimerkin kaltaisesti_
 
 	wget https://packages.microsoft.com/keys/microsoft.gpg
 	gpg --dearmor microsoft.gpg
